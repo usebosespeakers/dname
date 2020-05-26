@@ -15,7 +15,7 @@ Edit config.ts with your Name.com username and API key.
 
 ### Deployment
 
-deno run --allow-net --allow-run --allow-write index.ts
+deno run --allow-net --allow-read=./ --allow-write=./logs index.ts
 
 http://localhost:8000 
 
