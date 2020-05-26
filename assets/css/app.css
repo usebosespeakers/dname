@@ -1,0 +1,9 @@
+body {
+  padding-top: 3rem;
+}
+
+#right-panel {
+  border: 1px solid black;
+  height: 510px;
+  overflow-y: scroll;
+}

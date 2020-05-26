@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="./assets/icons/flames.ico" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+    <link href="./css/app.css" rel="stylesheet">
+
+    <title>DName</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/starter-template/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="./css/app.css" rel="stylesheet">
+</head>
+
+<body> 
+
+    <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <form class="ml-0 mr-0">
+            <h2 id="title">Discover Domains</h2>
+            <br>
+            <div class="form-inline">
+                <label class="font-weight-bold justify-content-start col-md-4 pl-0" for="extension">Extension</label>
+                <input type="text" name="extension" class="form-control col-md-8 pl-2" id="extension" value=".one" placeholder=".one">
+                <!-- <small id="ext" class="form-text text-muted">Enter a dot before the domain extension</small> -->
+            </div>
+            <br>
+            <div class="form-inline">
+                <label class="font-weight-bold justify-content-start col-md-4 pl-0" for="max-price">Prefix</label>
+                <input type="text" name="prefix" class="form-control col-md-8 pl-2" id="prefix" value="">
+            </div>
+            <br>
+            <div class="form-inline">
+                <label class="font-weight-bold justify-content-start col-md-4 pl-0" for="max-price">Suffix</label>
+                <input type="text" name="suffix" class="form-control col-md-8 pl-2" id="suffix" value="">
+            </div>
+            <br>
+            <div class="form-inline">
+                <label class="font-weight-bold justify-content-start col-md-4 pl-0" for="max-length">Max Length</label>
+                <input name="maxLength" type="number" class="form-control col-md-8 pl-2" id="max-length" value="63">
+            </div>
+            <br>
+            <div class="form-inline">
+                <label class="font-weight-bold justify-content-start col-md-4 pl-0" for="max-price">Max Price</label>
+                <input name="maxPrice" type="number" class="form-control col-md-8 pl-2" id="max-price" value="50">
+            </div>
+            <br>
+            <div class="form-inline">
+                <label class="col-md-4 pl-0 justify-content-start font-weight-bold" for="word-list">Word List</label>
+                <select name="wordList" class="form-control col-md-8 pl-1" id="word-list"> 
+                    <option>test-file-125.txt</option>
+                    <option>10000-words-9894.txt</option>
+                    <option>3000-words-3000.txt</option>
+                    <option>5L-word-5757.txt</option>
+                    <option>ABBB-650.txt</option>
+                    <option>most-common-1000.txt</option>
+                    <option>somewhat-common-2139.txt</option>
+                </select>
+            </div>
+            <div class="col-md-8 offset-4 pl-0"> 
+                <small id="wordListNote" class="form-text text-muted">Large lists may take a while</small> 
+            </div> 
+            <br>
+            <button type="submit" class="btn btn-success float-right">Submit</button>
+            </form> <!-- End form -->
+          </div> <!-- End left-panel -->
+          <div class="col-md-8">
+            <div id="right-panel" class="p-2"></div>
+        </div>
+      </div> 
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <!-- <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script> -->
+    <!-- <script src="../../assets/js/vendor/popper.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.4.0/cjs/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="./js/app.js"></script>
+</body>
+
+</html> 
