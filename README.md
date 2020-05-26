@@ -9,6 +9,7 @@ Deno >= 1.0.2
 ### Installing
 
 git clone https://github.com/usebosespeakers/dname.git
+
 cd dname
 
 Edit config.ts with your Name.com username and API key.
