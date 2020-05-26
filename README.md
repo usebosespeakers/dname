@@ -1,4 +1,4 @@
-# Project Title
+# DName
 
 An implementation of Name.com's API using Deno, Oak, and Bootstrap 4 to search word lists for available domains.
 
