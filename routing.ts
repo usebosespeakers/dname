@@ -65,7 +65,7 @@ const checkAvailability = async(ctx: any, next: Function) => {
         const domain = `${json.prefix}${line.trim()}${json.suffix}${json.extension}`.toLowerCase();
 
         // If maxLength is a number and line length is less than maxLength, use domain 
-        if ( isNaN(maxLength) == false && line.trim().length <= maxLength ) {
+        if ( isNaN(maxLength) == false && json.prefix.length + line.trim().length+ json.suffix.length <= maxLength ) {
             domains.push(domain); 
         } else if ( isNaN(maxLength) ) { 
             domains.push(domain); 
