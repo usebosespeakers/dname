@@ -22,7 +22,6 @@ const makeAvailabilityRequest = async(domains: Array<string>) => {
     const response = await fetch("https://api.name.com/v4/domains:checkAvailability", requestOptions);
 
     const text = await response.text(); 
-    console.log(JSON.parse(text).results)
     return JSON.parse(text).results; 
 
     /* Sampe return value
