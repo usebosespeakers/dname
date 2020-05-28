@@ -22,7 +22,7 @@ const makeAvailabilityRequest = async(domains: Array<string>) => {
     const response = await fetch("https://api.name.com/v4/domains:checkAvailability", requestOptions);
 
     const text = await response.text(); 
-
+    console.log(JSON.parse(text).results)
     return JSON.parse(text).results; 
 
     /* Sampe return value
@@ -56,7 +56,8 @@ const checkAvailability = async(ctx: any, next: Function) => {
     const bufReader = new BufReader(file);
     let line: string | null;
     let domains: Array<string> = [];
-    let results: Array<any> = [];
+    let allRequests: Array<Promise<Array<any>>> = []
+    let matchedResults: Array<any> = [];
 
     // Use buffer to iterate lines in file
     while ((line = await bufReader.readString("\n")) != null) { 
@@ -74,32 +75,31 @@ const checkAvailability = async(ctx: any, next: Function) => {
         } 
 
         if (domains.length == 50) { 
-            const result = await makeAvailabilityRequest(domains);
-            for (const r of result) { 
-                if (r.hasOwnProperty("purchasePrice")) {
-                    let price = parseFloat(parseFloat(r.purchasePrice).toFixed(2));
-                    if ( price <= maxPrice ){ results.push(r) }
-                }
-            }
-            domains = []; 
+            allRequests.push(makeAvailabilityRequest(domains));
+            domains = []; // Flush domains from buffer
         }
     }
 
     file.close(); 
 
     if (domains.length > 0) { 
-        const result = await makeAvailabilityRequest(domains);
-        for (const r of result) { 
+        allRequests.push(makeAvailabilityRequest(domains));
+        domains = []; // Flush domains from buffer - array is no longer needed
+    } 
+
+    const allResults = await Promise.all(allRequests);
+
+    for (const resultGroup of allResults) { 
+        for (const r of resultGroup) { 
             if (r.hasOwnProperty("purchasePrice")) {
-                    let price = parseFloat(parseFloat(r.purchasePrice).toFixed(2));
-                    if ( price <= maxPrice ){ results.push(r) }
+                let price = parseFloat(parseFloat(r.purchasePrice).toFixed(2));
+                if ( price <= maxPrice ){ matchedResults.push(r) }
             }
         }
-        domains = [];
     } 
 
     ctx.response.headers.set("Content-Type", "application/json");
-    ctx.response.body = {"results":results};
+    ctx.response.body = {"results":matchedResults};
 
 }
 
