@@ -12,7 +12,7 @@ const checkAvailability = async () => {
         body: formData,
     };
 
-    const response = await fetch("http://localhost:8000/api/name/checkAvailability", requestOptions);
+    const response = await fetch("/api/name/checkAvailability", requestOptions);
     const json = await response.json(); 
 
     let html = "";
